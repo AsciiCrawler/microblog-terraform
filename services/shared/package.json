@@ -1,0 +1,25 @@
+{
+    "name": "lambda-function",
+    "version": "1.0.0",
+    "description": "A minimal Node.js Lambda function",
+    "scripts": {
+        "build": "rm -rf ./dist && npm run build0 && npm run build1 && npm run declaration0 && npm run declaration1",
+        "build0": "esbuild index.ts --bundle --minify --platform=node --target=node22 --outfile=dist/index.js",
+        "build1": "esbuild dynamoUtils.ts --bundle --minify --platform=node --target=node22 --outfile=dist/dynamoUtils.js",
+        "declaration0": "tsc index.ts --strict --emitDeclarationOnly --moduleResolution node --declaration true --target es2020 --outDir dist",
+        "declaration1": "tsc dynamoUtils.ts --strict --emitDeclarationOnly --moduleResolution node --declaration true --target es2020 --outDir dist"
+    },
+    "dependencies": {
+        "jsonwebtoken": "^9.0.2",
+        "@aws-sdk/client-dynamodb": "^3.724.0",
+        "@aws-sdk/client-secrets-manager": "^3.716.0",
+        "zod": "^3.24.1"
+    },
+    "devDependencies": {
+        "@types/aws-lambda": "^8.10.146",
+        "@types/jsonwebtoken": "^9.0.7",
+        "@types/node": "^22.10.3",
+        "esbuild": "0.24.2",
+        "typescript": "^5.7.2"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "lambda-function",
+    "version": "1.0.0",
+    "description": "A minimal Node.js Lambda function",
+    "scripts": {
+        "build": "esbuild index.ts --bundle --minify --platform=node --target=node22 --outfile=dist/index.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/aws-lambda": "^8.10.146",
+        "@types/node": "^22.10.3",
+        "esbuild": "0.24.2"
+    }
+}
